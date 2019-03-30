@@ -10,7 +10,13 @@ const ExperienceController = {
 	byId(request, response, next){
 		const id = request.params.id
 		repository.byId(id, (err, data) => {
-			response.send(data)
+			if(err) return next(err)
+			if(!data) {
+				let notFound = new Error('xp not found')
+				notFound.status = 404
+				return next(notFound)
+			}
+			response.json(data)
 		})
 	},
 	create(request, response, next){
