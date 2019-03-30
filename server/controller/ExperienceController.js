@@ -13,7 +13,8 @@ const ExperienceController = {
 		})
 	},
 	create(request, response, next){
-
+		console.log(request.body)
+		response.status(201).end()
 	},
 	update(request, response, next){
 
