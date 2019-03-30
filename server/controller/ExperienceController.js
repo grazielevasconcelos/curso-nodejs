@@ -35,7 +35,7 @@ const ExperienceController = {
 		const id = request.params.id
 		repository.delete(id, (err, data) => {
 			if(err) return next(err)
-			response.json(data)
+			response.sendStatus(204)
 		})
 	},
 	validateId(request, response, next){
