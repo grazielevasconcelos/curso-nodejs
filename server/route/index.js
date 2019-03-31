@@ -6,6 +6,12 @@ const router = require('express').Router()
 
 router.get('/', AppController.index)
 
+//IDEAL IMPLEMENTAR NA CONTROLLER 
+router.get('/novatec', (request, response, next) =>{
+    response.render('index', { title: 'Domingo de Curso' })
+})
+
+
 router.get('/experiences', XPController.list)
 router.post('/experiences', XPController.create)
 

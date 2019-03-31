@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+<table border="1">
+    <thead><tr><th>ID</th><th>Name</th></tr></thead>
+    <tbody id="data"></tbody>
+</table>
+<script>
+    let xhr = new XMLHttpRequest();
+    
+    xhr.open('GET','/experiences', true)
+    xhr.send()
+
+    let $data = document.querySelector('#data')
+
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4){
+            let json = JSON.parse(xhr.responseText)
+
+            $data.innerHTML = json.map(item => {
+                return `<tr>
+                    <td>${item._id}</td>
+                    <td>${item.name}</td>
+                    </tr>`
+            }).join('')
+        }
+    }
+
+</script>
+</body>
+</html>

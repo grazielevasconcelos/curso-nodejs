@@ -1,4 +1,5 @@
 const db = require('../config/mongo')
+const bluebird = require('bluebird')
 
 const ExperienceRepository = {
     list(callback){
@@ -41,4 +42,5 @@ const ExperienceRepository = {
 	}
 }
 
-module.exports = ExperienceRepository
+// module.exports = ExperienceRepository
+module.exports = bluebird.promisifyAll(ExperienceRepository)
