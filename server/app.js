@@ -32,10 +32,7 @@ app.use(AppController.handleError)
 
 // app.listen(3000)
 // TODO alterar o package json para server/bin/www e descomentar linha abaixo
-// module.exports = app
 
-console.time()
-app.listen(3000, () =>{
-    console.log('server is up')
-    console.timeEnd()
-})
+
+module.exports = app
+

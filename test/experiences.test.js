@@ -5,7 +5,7 @@ const db = require('../server/config/mongo')
 
 
 describe('experiences routes', () => {
-    beforeEach(() => {
+    beforeEach((done) => {
         let obj = { name: 'Restaurante Bela e a Fera'}
         db.collection('experiences').insert(obj, done)
     })
@@ -14,8 +14,11 @@ describe('experiences routes', () => {
     })
 
     it('GET /experiences', () =>{
-        return request.get('/experiences').expect(200).then(result => {
-            assert.ok(result.body.lenght)
+        return request.get('/experiences').expect(200)
+        .then(result => {
+            assert.ok(result.body.length)
+            assert.equal(result.body.length, 1)
+            assert.equal(result.body[0].name, 'Restaurante Bela e a Fera')
         })
     })
     it('GET /experiences/:id', () =>{

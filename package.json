@@ -4,7 +4,7 @@
   "description": "aula nodejs novatec",
   "main": "aula1.js",
   "scripts": {
-    "start": "export NODE_ENV=dev&& nodemon server/app.js",
+    "start": "export NODE_ENV=dev&& nodemon server/bin/www.js",
     "test": "export NODE_ENV=test&& nyc _mocha test/* --exit"
   },
   "keywords": [],
