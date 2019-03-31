@@ -4,8 +4,8 @@
   "description": "aula nodejs novatec",
   "main": "aula1.js",
   "scripts": {
-    "start": "nodemon server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "export NODE_ENV=dev&& nodemon server/app.js",
+    "test": "export NODE_ENV=test&& nyc _mocha test/* --exit"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,8 @@
   },
   "devDependencies": {
     "mocha": "^6.0.2",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
+    "supertest": "^4.0.2"
   }
 }
